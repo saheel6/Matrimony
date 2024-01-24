@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Likes</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: rgb(211,206,195);
+            background: linear-gradient(0deg, rgba(211,206,195,1) 5%, rgba(162,164,187,1) 28%, rgb(114, 86, 136) 50%, rgb(53, 42, 61) 89%); 
+            font-family: sans-serif;
+          }
+      
+      
+      
+      
+      
+      
+          .main-navbar .top-navbar{
+            background: rgb(2,0,36);
+              background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(86,69,79,1) 9%, rgba(90,40,90,1) 26%, rgba(20,20,97,1) 61%, rgba(25,86,98,1) 100%);
+          
+              padding-top: 10px;
+              padding-bottom: 10px;
+          }
+          .main-navbar .top-navbar{
+              color: #fff;
+          }
+          .brand-name{
+              margin-left: 20px;
+          }
+          .main-navbar .top-navbar .nav-link{
+              color: #fff;
+              font-size: 16px;
+              font-weight: 500;
+          }
+          .main-navbar .top-navbar .dropdown-menu{
+              padding: 0px 0px;
+              border-radius: 0px;
+          }
+          .main-navbar .top-navbar .dropdown-menu .dropdown-item{
+              padding: 8px 16px;
+              border-bottom: 1px solid #ccc;
+              font-size: 14px;
+          }
+          .main-navbar .top-navbar .dropdown-menu .dropdown-item i{
+              width: 20px;
+              text-align: center;
+              color: #2874f0;
+              font-size: 14px;
+          }
+          .main-navbar .navbar{
+              padding: 0px;
+              background-color: #ddd;
+          }
+          .main-navbar .navbar .nav-item .nav-link{
+              padding: 8px 20px;
+              color: #000;
+              font-size: 15px;
+          }
+          
+          @media only screen and (max-width: 600px) {
+              .main-navbar .top-navbar .nav-link{
+                  font-size: 12px;
+                  padding: 8px 10px;
+              }
+          }
+          
+          
+          
+          
+          
+      
+          
+      
+      
+      
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Updated card styles */
+
+        .card a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .card {
+            background-color: rgba(251, 247, 255, 0.3);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.1s;
+            width: 300px;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        p,
+        h3 {
+            color: rgb(255, 255, 255);
+        }
+
+        img {
+            height: 350px;
+            border-radius: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Navbar styles */
+
+       
+        /* Container to hold the cards */
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+  
+    <div class="main-navbar shadow-sm sticky-top">
+        <div class="top-navbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
+                        <h3 class="brand-name"><b>MarryWell</b></h3>
+                    </div>
+                    <div class="col-md-5 my-auto">
+                    
+                    </div>
+                    <div class="col-md-5 my-auto">
+                        <ul class="nav justify-content-end">
+    
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profilefilter' %}">
+                                    <i class=""></i>Home
+                                </a>
+                            </li>
+                            
+                 
+                            </li>
+                
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user"></i>  
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'upro' %}"><i class="fa fa-user"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="{% url 'likedlist' %}"><i class="fa fa-list"></i> likedlist</a></li>
+                    
+                                <li><a class="dropdown-item" href="{%url 'logout'%}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
+                    Funda Ecom
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+            </div>
+        </nav>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href=""></a>
+            </li>
+          
+    
+        </ul>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+    
+
+    <!-- Navbar -->
+
+    <h1 style="color: white;">Your Likes</h1>
+
+    <div class="card-container">
+        {% if likes %}
+
+        {% for like in likes %}
+        <div class="card">
+            <a href="{% url 'user-detail' like.liked_user.id %}" style="text-decoration: none;">
+                <img src="{{ like.liked_user.photo }}" alt="{{ like.liked_user.username }} " style="width: 260px;">
+                <div class="card-content">
+                    <h3>{{ like.liked_user.username }}</h3>
+                    <p>{{ like.liked_user.gender }}</p>
+                    <p>{{ like.liked_user.age }}</p>
+                    <p>{{ like.liked_user.religion }}</p>
+                </div>
+            </a>
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+        <p>No profiles found.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

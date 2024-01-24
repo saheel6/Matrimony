@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% if messages %}
+
+    {%for i in messages%}
+    
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <div class="alert alert-success alert-dismissable">
+      <strong>{{i}}</strong>
+    </div>
+    {% endif %}
+    
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="alert alert-danger alert-dismissable">
+      <strong>{{i}}</strong>
+    </div>
+    {% endif %}
+    
+    
+    {%endfor%}
+    
+    {% endif %}
+    
+
+    <h1 style="background-color: rgb(27, 27, 74);color:white">HOME PAGE</h1>
+
+     
+    <a style="font-size: 30px;background-color:rgb(93, 158, 215);color:black" href="{% url 'signinu' %}">signin</a><br><br>
+    <a style="font-size: 30px;background-color:rgb(93, 158, 215);color:black" href="{% url 'sup' %}">signup</a><br><br>
+    <a style="font-size: 30px;background-color:rgb(93, 158, 215);color:black" href="{% url 'upro' %}">profile</a><br><br>
+    <a style="font-size: 30px;background-color:rgb(93, 158, 215);color:black" href="{% url 'profilefilter' %}">filter</a><br>
+    <a style="font-size: 30px;background-color:rgb(93, 158, 215);color:black" href="{% url 'likedlist' %}">likedlist</a><br><br>
+    <a style="font-size: 30px;background-color:rgb(93, 158, 215);color:black" href="{% url 'subscribe' %}">subscribe</a><br><br>
+    <a style="font-size: 30px;background-color:rgb(93, 158, 215);color:black" href="{% url 'unsubscribe' %}">unsubscribe</a><br><br>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial;  
+      text-align: center;
+    }
+    
+    .selection {
+      display: inline-block;
+      padding: 20px;
+      background: #f2f2f2; 
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .selection:hover {
+      background: #ddd;
+    }
+    
+    .selection.active {
+      background: #6ab04c;
+      color: white;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Create a New Profile</h1>
+  
+  <div id="selections">
+    <div class="selection" onclick="selectProfile('myself')">For Myself</div>
+    <div class="selection" onclick="selectProfile('son')">For My Son</div>
+    <div class="selection" onclick="selectProfile('daughter')">For My Daughter</div>
+    <div class="selection" onclick="selectProfile('brother')">For My Brother</div>
+    <div class="selection" onclick="selectProfile('sister')">For My Sister</div>
+  </div>
+
+  <script>
+    let activeSelection = 'myself';
+
+    function selectProfile(profileFor) {
+      document.querySelector('.selection.active').classList.remove('active');
+      document.querySelector(`.selection[onclick="selectProfile('${profileFor}')"]`).classList.add('active');
+      activeSelection = profileFor;
+    }
+  </script>
+
+  <div id="genderPopup" style="display:none;">
+
+    <h3>Select Your Gender</h3>
+  
+    <div class="selection" onclick="selectGender('male')">Male</div>
+    <div class="selection" onclick="selectGender('female')">Female</div>
+    
+    <button onclick="closeGenderPopup()">Done</button>
+  
+  </div>
+  
+  <script>
+  
+    // Existing JavaScript
+  
+    function selectProfile(profileFor) {
+      // Existing code
+  
+      if(profileFor === 'myself') {
+        document.getElementById('genderPopup').style.display = 'block';
+      }
+    }
+    
+    function closeGenderPopup() {
+      document.getElementById('genderPopup').style.display = 'none';
+    }
+  
+    let selectedGender;
+  
+    function selectGender(gender) {
+      selectedGender = gender;
+    }
+  
+  </script>
+
+</body>
+</html>
